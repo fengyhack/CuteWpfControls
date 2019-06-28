@@ -1,0 +1,56 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:CWC="clr-namespace:CuteWpfControls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="./Resource/DoubleRound.xaml" />
+        <ResourceDictionary Source="./Resource/SingleRound.xaml" />
+        <ResourceDictionary Source="./Resource/Cogs.xaml" />
+        <ResourceDictionary Source="./Resource/Apple.xaml" />
+        <ResourceDictionary Source="./Resource/Normal.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="CWC:LoadingIndicator">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="#1282B3" />
+        <Setter Property="Width" Value="40" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Template" Value="{StaticResource SingleRound}" />
+        <Style.Triggers>
+            <Trigger Property="IndicatorType" Value="DoubleRound">
+                <Setter Property="Foreground" Value="#1282B3" />
+                <Setter Property="Template" Value="{StaticResource DoubleRound}" />
+            </Trigger>
+            <Trigger Property="IndicatorType" Value="SingleRound">
+                <Setter Property="Foreground" Value="#1282B3" />
+                <Setter Property="Template" Value="{StaticResource SingleRound}" />
+            </Trigger>
+            <Trigger Property="IndicatorType" Value="Win10">
+                <Setter Property="Foreground" Value="#1282B3" />
+                <Setter Property="Template" Value="{StaticResource SingleRound}" />
+            </Trigger>
+            <Trigger Property="IndicatorType" Value="Android">
+                <Setter Property="Foreground" Value="#1282B3" />
+                <Setter Property="Template" Value="{StaticResource Normal}" />
+            </Trigger>
+            <Trigger Property="IndicatorType" Value="Cogs">
+                <Setter Property="Foreground" Value="#1282B3" />
+                <Setter Property="Template" Value="{StaticResource Cogs}" />
+            </Trigger>
+            <Trigger Property="IndicatorType" Value="Apple">
+                <Setter Property="Width" Value="24" />
+                <Setter Property="Foreground" Value="#1282B3" />
+                <Setter Property="Template" Value="{StaticResource Apple}" />
+            </Trigger>
+            <Trigger Property="IndicatorType" Value="Normal">
+                <Setter Property="Foreground" Value="#1282B3" />
+                <Setter Property="Template" Value="{StaticResource Normal}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
