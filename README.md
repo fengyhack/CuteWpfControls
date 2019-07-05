@@ -26,6 +26,7 @@ PM> Install-Package CuteWpfControls
   - PasswordBoxEx
   - **Pie** (*new feature*)
   - **Gauge** (*new feature*)
+  - *BusyIndicator* (*TODO*)
 
 - GenericStyles
   - FlatButton
