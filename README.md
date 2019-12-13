@@ -27,8 +27,7 @@ PM> Install-Package CuteWpfControls
   - **Pie**
   - **Gauge**
   - *BusyIndicator*
-- **StepBar** (*new feature*)
-  
+  - **StepBar** (*new feature*)
 - GenericStyles
   - FlatButton
   - FlatCheckBox
