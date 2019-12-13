@@ -1,0 +1,90 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:CWC="clr-namespace:CuteWpfControls">
+
+    <PathGeometry x:Key="Icon_CheckMark" Figures="M378.410667 850.450963C364.491852 850.450963 350.610963 845.293037 340.02963 834.939259L20.920889 523.529481C-0.279704 502.821926-0.279704 469.295407 20.920889 448.587852 42.121481 427.880296 76.48237 427.880296 97.682963 448.587852L378.410667 722.526815 925.75763 188.491852C946.958222 167.784296 981.319111 167.784296 1002.519704 188.491852 1023.720296 209.161481 1023.720296 242.688 1002.519704 263.395556L416.791704 834.939259C406.172444 845.293037 392.291556 850.450963 378.410667 850.450963L378.410667 850.450963Z" />
+
+    <Style TargetType="{x:Type CWC:StepBarItem}">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="MinWidth" Value="{Binding ItemMinWidth,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=CWC:StepBar}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CWC:StepBarItem}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ContentPresenter Grid.Row="0" Margin="2,0,0,0"/>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <Grid Margin="2,0,0,0">
+                                <Border x:Name="Bd" BorderBrush="#CCCCCC" Width="25" Height="25" CornerRadius="100" 
+                                        BorderThickness="1" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                                </Border>
+                                <TextBlock x:Name="tbIndicator" Text="{TemplateBinding Indicator}"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                <Path x:Name="path" Data="{StaticResource Icon_CheckMark}" Stretch="Uniform" Width="12" Fill="#3399FF" Visibility="Collapsed" />
+                            </Grid>
+                            <Border x:Name="bdLine" Grid.Row="1" Grid.Column="1" Margin="2,0,0,0" BorderBrush="#E3E8EE" BorderThickness="0,1,0,0" 
+                                VerticalAlignment="Center" Width="{TemplateBinding Width}" MinWidth="{TemplateBinding MinWidth}"
+                                SnapsToDevicePixels="True" UseLayoutRounding="True" Visibility="Collapsed" />
+                        </StackPanel>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Location" Value="1">
+                            <Setter TargetName="bdLine" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="Location" Value="2">
+                            <Setter TargetName="bdLine" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="Location" Value="3">
+                            <Setter TargetName="bdLine" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="Relative" Value="1">
+                            <Setter TargetName="Bd" Property="Background" Value="#003399FF" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#3399FF" />
+                            <Setter TargetName="tbIndicator" Property="Visibility" Value="Collapsed" />
+                            <Setter TargetName="bdLine" Property="BorderBrush" Value="#3399FF" />
+                            <Setter TargetName="path" Property="Visibility" Value="Visible" />
+                            <Setter Property="Foreground" Value="#999999" />
+                        </Trigger>
+                        <Trigger Property="Relative" Value="2">
+                            <Setter TargetName="Bd" Property="Background" Value="#3399FF" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="#3399FF" />
+                            <Setter TargetName="tbIndicator" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="tbIndicator" Property="Foreground" Value="#FFFFFF" />
+                            <Setter TargetName="path" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="Foreground" Value="#666666" />
+                        </Trigger>
+                            <Trigger Property="Relative" Value="3">
+                            <Setter Property="Foreground" Value="#999999" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type CWC:StepBar}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CWC:StepBar}">
+                    <Border Background="{TemplateBinding Background}">
+                        <ScrollViewer VerticalScrollBarVisibility="Disabled" VerticalAlignment="Center" PanningMode="HorizontalOnly">
+                            <ItemsPresenter />
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel IsItemsHost="True" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

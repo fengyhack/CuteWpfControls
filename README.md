@@ -24,12 +24,13 @@ PM> Install-Package CuteWpfControls
   - IPAddressBox
   - IconTextBox
   - PasswordBoxEx
-  - **Pie** (*new feature*)
-  - **Gauge** (*new feature*)
-  - *BusyIndicator* (*TODO*)
-
+  - **Pie**
+  - **Gauge**
+  - *BusyIndicator
+- **StepBar** (*new feature*)
+  
 - GenericStyles
   - FlatButton
   - FlatCheckBox
   - FlatProgressBar
-  - **FlatScrollViewer**(*new feature*)
+  - **FlatScrollViewer**

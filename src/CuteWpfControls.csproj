@@ -62,6 +62,11 @@
     <Compile Include="Pie\PieSlice.cs" />
     <Compile Include="Pie\PieUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StepBar\EnumContentPlacement.cs" />
+    <Compile Include="StepBar\EnumItemLocation.cs" />
+    <Compile Include="StepBar\EnumItemRelative.cs" />
+    <Compile Include="StepBar\StepBar.cs" />
+    <Compile Include="StepBar\StepBarItem.cs" />
     <Compile Include="TextBoxEx\TextBoxEx.cs" />
     <Compile Include="Timeline\Timeline.cs" />
     <Compile Include="Timeline\TimelineItem.cs" />
@@ -84,6 +89,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="PasswordBoxEx\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="StepBar\Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -127,7 +136,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-	<Page Include="GenericStyles\FlatScrollViewer.xaml">
+    <Page Include="GenericStyles\FlatScrollViewer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
