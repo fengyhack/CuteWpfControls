@@ -1,0 +1,71 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CWC="clr-namespace:CuteWpfControls">
+
+    <PathGeometry x:Key="Arc" Figures="M 100,100 A 100,100 0 1 0 200,0" />
+    <ControlTemplate x:Key="DoubleArc" TargetType="{x:Type CWC:LoadingIndicator}">
+        <Grid x:Name="PART_Root" Background="Transparent">
+            <Path
+                x:Name="outerArc"
+                Width="30"
+                Height="30"
+                Data="{StaticResource Arc}"
+                Opacity="1.0"
+                RenderTransformOrigin="0.5,0.5"
+                Stretch="Uniform"
+                Stroke="{TemplateBinding Foreground}"
+                StrokeThickness="3"
+                UseLayoutRounding="False">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path
+                x:Name="innerArc"
+                Width="26"
+                Height="26"
+                Data="{StaticResource Arc}"
+                Opacity="0.7"
+                RenderTransformOrigin="0.5,0.5"
+                Stretch="Uniform"
+                Stroke="{TemplateBinding Foreground}"
+                StrokeThickness="4"
+                UseLayoutRounding="False">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform Angle="90" />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="ActiveStates">
+                    <VisualState x:Name="Inactive" />
+                    <VisualState x:Name="Active">
+                        <Storyboard SpeedRatio="{TemplateBinding SpeedRatio}">
+                            <DoubleAnimationUsingKeyFrames
+                                RepeatBehavior="Forever"
+                                Storyboard.TargetName="outerArc"
+                                Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)">
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.0000000" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="225" />
+                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="360" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames
+                                RepeatBehavior="Forever"
+                                Storyboard.TargetName="innerArc"
+                                Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)">
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.0000000" Value="0" />
+                                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="-180" />
+                                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-360" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Grid>
+    </ControlTemplate>
+</ResourceDictionary>

@@ -1,0 +1,123 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:CWC="clr-namespace:CuteWpfControls">
+
+    <Style x:Key="EffectiveToggleCheckBox" TargetType="{x:Type CWC:ToggleCheckBox}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CWC:ToggleCheckBox}">
+                    <Border
+                        x:Name="PART_Root"
+                        Width="80"
+                        Height="30"
+                        Background="{TemplateBinding CheckedBackground}"
+                        BorderBrush="{TemplateBinding Background}"
+                        BorderThickness="1"
+                        CornerRadius="15">
+                        <Grid>
+                            <Border
+                                x:Name="PART_BdPie"
+                                Width="28"
+                                Height="28"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Background="{TemplateBinding CheckedColor}"
+                                CornerRadius="14">
+                                <Border.RenderTransform>
+                                    <TranslateTransform X="50" />
+                                </Border.RenderTransform>
+                            </Border>
+                            <TextBlock
+                                x:Name="PART_Text"
+                                VerticalAlignment="Center"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding CheckedText}">
+                                <TextBlock.RenderTransform>
+                                    <TranslateTransform X="50" />
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="PART_Root" Property="Background" Value="{Binding CheckedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_BdPie" Property="Background" Value="{Binding CheckedColor, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_Text" Property="Text" Value="{Binding CheckedText, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BdPie"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="50"
+                                            Duration="00:00:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_Text"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="20"
+                                            Duration="00:00:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BdPie"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="0"
+                                            Duration="00:00:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_Text"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="40"
+                                            Duration="00:00:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="PART_Root" Property="Background" Value="{Binding UncheckedBackground, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_BdPie" Property="Background" Value="{Binding UncheckedColor, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="PART_Text" Property="Text" Value="{Binding UncheckedText, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BdPie"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="0"
+                                            Duration="00:00:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_Text"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="40"
+                                            Duration="00:00:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_BdPie"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="50"
+                                            Duration="00:00:0.2" />
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="PART_Text"
+                                            Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)"
+                                            To="20"
+                                            Duration="00:00:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

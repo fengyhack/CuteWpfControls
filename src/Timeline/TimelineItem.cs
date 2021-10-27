@@ -4,17 +4,24 @@ using System.ComponentModel;
 
 namespace CuteWpfControls
 {
-    /// <summary>
-    /// 时间轴
-    /// </summary>
     /// <remarks>2017-11-10</remarks>
     public class TimelineItem : ContentControl
     {
         #region DependencyProperty
 
+        [Bindable(true), Description("theOnly")]
+        public bool IsOnlyItem
+        {
+            get { return (bool)GetValue(IsOnlyItemProperty); }
+            set { SetValue(IsOnlyItemProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsOnlyItemProperty =
+            DependencyProperty.Register("IsOnlyItem", typeof(bool), typeof(TimelineItem), new PropertyMetadata(false));
+
         #region IsFirstItem
 
-        [Bindable(true), Description("该项在列表中是否是第一个")]
+        [Bindable(true), Description("theFirst")]
         public bool IsFirstItem
         {
             get { return (bool)GetValue(IsFirstItemProperty); }
@@ -28,7 +35,7 @@ namespace CuteWpfControls
 
         #region IsMiddleItem
 
-        [Bindable(true), Description("该项在列表中是否是中间的一个")]
+        [Bindable(true), Description("Middle")]
         public bool IsMiddleItem
         {
             get { return (bool)GetValue(IsMiddleItemProperty); }
@@ -42,7 +49,7 @@ namespace CuteWpfControls
 
         #region IsLastItem
 
-        [Bindable(true), Description("该项在列表中是否是最后一个")]
+        [Bindable(true), Description("theLast")]
         public bool IsLastItem
         {
             get { return (bool)GetValue(IsLastItemProperty); }

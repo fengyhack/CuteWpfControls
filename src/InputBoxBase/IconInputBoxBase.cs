@@ -4,13 +4,13 @@ using System.Windows.Media;
 
 namespace CuteWpfControls
 {
-    public class IconInputBoxBase:InputBoxBase
+    public class IconInputBoxBase : InputBoxBase
     {
         #region DependencyProperty
 
         #region IsIconVisible
 
-        [Bindable(true), Description("是否显示图标")]
+        [Bindable(true), Description("IconVisibility")]
         public bool IsIconVisible
         {
             get { return (bool)GetValue(IsIconVisibleProperty); }
@@ -24,7 +24,7 @@ namespace CuteWpfControls
 
         #region IconBackground
 
-        [Bindable(true), Description("图标边框背景色")]
+        [Bindable(true), Description("IconBackground")]
         public Brush IconBackground
         {
             get { return (Brush)GetValue(IconBackgroundProperty); }
@@ -38,7 +38,7 @@ namespace CuteWpfControls
 
         #region IconForeground
 
-        [Bindable(true), Description("图标的颜色")]
+        [Bindable(true), Description("IconColor")]
         public Brush IconForeground
         {
             get { return (Brush)GetValue(IconForegroundProperty); }
@@ -52,7 +52,7 @@ namespace CuteWpfControls
 
         #region IconBorderBrush
 
-        [Bindable(true), Description("图标边框背景色")]
+        [Bindable(true), Description("IconBorder")]
         public Brush IconBorderBrush
         {
             get { return (Brush)GetValue(IconBorderBrushProperty); }
@@ -79,7 +79,7 @@ namespace CuteWpfControls
 
         #region IconWidth
 
-        [Bindable(true), Description("图标的大小")]
+        [Bindable(true), Description("IconWidth")]
         public double IconWidth
         {
             get { return (double)GetValue(IconWidthProperty); }
@@ -93,10 +93,7 @@ namespace CuteWpfControls
 
         #region IconPadding
 
-        /// <summary>
-        /// 获取或者设置图标的内边距
-        /// </summary>
-        [Bindable(true), Description("图标的内边距")]
+        [Bindable(true), Description("IconPadding")]
         public Thickness IconPadding
         {
             get { return (Thickness)GetValue(IconPaddingProperty); }
@@ -110,7 +107,7 @@ namespace CuteWpfControls
 
         #region IconCornerRadius
 
-        [Bindable(true), Description("图标边框的圆角（可以不用手动设置，系统会根据密码框的圆角值自动设置该值）")]
+        [Bindable(true), Description("MaybeAuto")]
         public CornerRadius IconCornerRadius
         {
             get { return (CornerRadius)GetValue(IconCornerRadiusProperty); }
@@ -124,7 +121,7 @@ namespace CuteWpfControls
 
         #region IconPathData
 
-        [Bindable(true), Description("密码框图标")]
+        [Bindable(true), Description("Icon")]
         public PathGeometry IconPathData
         {
             get { return (PathGeometry)GetValue(IconPathDataProperty); }

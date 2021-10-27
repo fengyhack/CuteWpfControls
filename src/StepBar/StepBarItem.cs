@@ -14,25 +14,25 @@ namespace CuteWpfControls
         public static readonly DependencyProperty IndicatorProperty =
             DependencyProperty.Register("Indicator", typeof(string), typeof(StepBarItem));
 
-        public EnumItemLocation Location
+        public StepBarItemLocationEnum Location
         {
-            get { return (EnumItemLocation)GetValue(LocationProperty); }
+            get { return (StepBarItemLocationEnum)GetValue(LocationProperty); }
             private set { SetValue(LocationProperty, value); }
         }
 
         public static readonly DependencyProperty LocationProperty =
-            DependencyProperty.Register("Location", typeof(EnumItemLocation), typeof(StepBarItem),
-                new PropertyMetadata(EnumItemLocation.Unkown));
+            DependencyProperty.Register("Location", typeof(StepBarItemLocationEnum), typeof(StepBarItem),
+                new PropertyMetadata(StepBarItemLocationEnum.Unkown));
 
-        public EnumItemRelative Relative
+        public StepBarItemRelativeEnum Relative
         {
-            get { return (EnumItemRelative)GetValue(RelativeProperty); }
+            get { return (StepBarItemRelativeEnum)GetValue(RelativeProperty); }
             private set { SetValue(RelativeProperty, value); }
         }
 
         public static readonly DependencyProperty RelativeProperty =
-            DependencyProperty.Register("Relative", typeof(EnumItemRelative), typeof(StepBarItem),
-                new PropertyMetadata(EnumItemRelative.Unkown));
+            DependencyProperty.Register("Relative", typeof(StepBarItemRelativeEnum), typeof(StepBarItem),
+                new PropertyMetadata(StepBarItemRelativeEnum.Unkown));
 
         static StepBarItem()
         {
@@ -44,12 +44,12 @@ namespace CuteWpfControls
             Indicator = indicator;
         }
 
-        public void SetLocation(EnumItemLocation location)
+        public void SetLocation(StepBarItemLocationEnum location)
         {
             Location = location;
         }
 
-        public void SetRelative(EnumItemRelative relative)
+        public void SetRelative(StepBarItemRelativeEnum relative)
         {
             Relative = relative;
         }

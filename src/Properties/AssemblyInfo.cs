@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("CuteWpfControls")]
-[assembly: AssemblyDescription("Self-defined Controls for WPF (.NET 4.0)")]
+[assembly: AssemblyDescription("Self-defined Controls for WPF (.NET 4.5+)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("https://fengyh.cn")]
 [assembly: AssemblyProduct("CuteWpfControls")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.8")]
-[assembly: AssemblyFileVersion("1.0.8")]
+[assembly: AssemblyVersion("1.0.12.0")]
+[assembly: AssemblyFileVersion("1.0.12.0")]

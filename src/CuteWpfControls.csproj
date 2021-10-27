@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CuteWpfControls</RootNamespace>
     <AssemblyName>CuteWpfControls</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -42,37 +42,54 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BadgeAdorner\BadgeAdorner.cs" />
+    <Compile Include="BadgeAdorner\BadgeAlignmentEnum.cs" />
+    <Compile Include="FlatSlider\FlatSlider.cs" />
+    <Compile Include="ToggleCheckBox\ToggleCheckBox.cs" />
+    <Compile Include="FlatCheckBox\FlatCheckBox.cs" />
+    <Compile Include="Utils\UIElementExtension.cs" />
     <Compile Include="BusyMask\BusyMask.cs" />
     <Compile Include="BusyMask\BusyMaskAdorner.cs" />
     <Compile Include="Converters\InverseBooleanVisibilityConverter.cs" />
     <Compile Include="Converters\ValueIsZeroConverter.cs" />
     <Compile Include="Flyout\Flyout.cs" />
-    <Compile Include="Flyout\PositionEnum.cs" />
+    <Compile Include="Flyout\FadePositionEnum.cs" />
     <Compile Include="Gauge\Gauge.cs" />
     <Compile Include="IconTextBox\IconPlacementEnum.cs" />
     <Compile Include="IconTextBox\IconTextBox.cs" />
     <Compile Include="InputBoxBase\IconInputBoxBase.cs" />
     <Compile Include="IPAddressBox\IPAddressBoxTypeEnum.cs" />
     <Compile Include="IPAddressBox\IPAddressBox.cs" />
-    <Compile Include="PasswordBoxEx\PasswordBoxEx.cs" />
+    <Compile Include="IconPasswordBox\IconPasswordBox.cs" />
     <Compile Include="InputBoxBase\InputBoxBase.cs" />
     <Compile Include="ImageButton\ImageButton.cs" />
     <Compile Include="LoadingIndicator\IndicatorTypeEnum.cs" />
     <Compile Include="LoadingIndicator\LoadingIndicator.cs" />
+    <Compile Include="IconPasswordBox\PasswordBoxHelper.cs" />
     <Compile Include="Pie\PieSlice.cs" />
     <Compile Include="Pie\PieUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StepBar\EnumContentPlacement.cs" />
-    <Compile Include="StepBar\EnumItemLocation.cs" />
-    <Compile Include="StepBar\EnumItemRelative.cs" />
+    <Compile Include="StepBar\StepBarItemLocationEnum.cs" />
+    <Compile Include="StepBar\StepBarItemRelativeEnum.cs" />
     <Compile Include="StepBar\StepBar.cs" />
     <Compile Include="StepBar\StepBarItem.cs" />
-    <Compile Include="TextBoxEx\TextBoxEx.cs" />
     <Compile Include="Timeline\Timeline.cs" />
     <Compile Include="Timeline\TimelineItem.cs" />
+    <Compile Include="TitleTextBox\TitleOrientationEnum.cs" />
+    <Compile Include="TitleTextBox\TitleTextBox.cs" />
+    <Compile Include="Utils\VisualHelper.cs" />
+    <Compile Include="ZoomBorder\ZoomBorder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="BusyMask\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FlatCheckBox\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FlatSlider\Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -88,7 +105,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="PasswordBoxEx\Theme.xaml">
+    <Page Include="LoadingIndicator\Resource\RushFlow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoadingIndicator\Resource\LineWave.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoadingIndicator\Resource\Win10Circle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoadingIndicator\Resource\DoubleArc.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="IconPasswordBox\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LoadingIndicator\Resource\Circling.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\RadioButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ToggleCheckBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\PathGeometry.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -96,7 +145,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TextBoxEx\Theme.xaml">
+    <Page Include="Resources\ScrollViewerStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -124,19 +173,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="GenericStyles\FlatCheckBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GenericStyles\FlatButton.xaml">
+    <Page Include="Resources\ButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GenericStyles\FlatProgressBar.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="GenericStyles\FlatScrollViewer.xaml">
+    <Page Include="Resources\ProgressBarStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -144,11 +185,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="InputBoxBase\Resources\IconPathGeometry.xaml">
+    <Page Include="Timeline\Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Timeline\Theme.xaml">
+    <Page Include="TitleTextBox\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ToggleCheckBox\Theme.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

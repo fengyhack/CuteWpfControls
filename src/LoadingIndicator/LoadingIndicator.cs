@@ -8,19 +8,19 @@ namespace CuteWpfControls
         private FrameworkElement PART_Root;
 
         #region DependencyProperty
-        public bool IsActived
+        public bool IsActive
         {
-            get { return (bool)GetValue(IsActivedProperty); }
-            set { SetValue(IsActivedProperty, value); }
+            get => (bool)GetValue(IsActiveProperty);
+            set => SetValue(IsActiveProperty, value);
         }
-        
-        public static readonly DependencyProperty IsActivedProperty =
-            DependencyProperty.Register("IsActived", typeof(bool), typeof(LoadingIndicator), new PropertyMetadata(true, OnIsActivedChangedCallback));
 
-        private static void OnIsActivedChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        public static readonly DependencyProperty IsActiveProperty =
+            DependencyProperty.Register("IsActive", typeof(bool), typeof(LoadingIndicator), new PropertyMetadata(true, OnIsActiveChangedCallback));
+
+        private static void OnIsActiveChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             LoadingIndicator indicator = d as LoadingIndicator;
-            if(indicator.PART_Root == null)
+            if (indicator.PART_Root == null)
             {
                 return;
             }
@@ -30,18 +30,18 @@ namespace CuteWpfControls
 
         public double SpeedRatio
         {
-            get { return (double)GetValue(SpeedRatioProperty); }
-            set { SetValue(SpeedRatioProperty, value); }
+            get => (double)GetValue(SpeedRatioProperty);
+            set => SetValue(SpeedRatioProperty, value);
         }
 
         // Using a DependencyProperty as the backing store for SpeedRatio.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty SpeedRatioProperty =
-            DependencyProperty.Register("SpeedRatio", typeof(double), typeof(LoadingIndicator), new PropertyMetadata(1d, OnSpeedRatioChangedCallback));
+            DependencyProperty.Register("SpeedRatio", typeof(double), typeof(LoadingIndicator), new PropertyMetadata(1.0, OnSpeedRatioChangedCallback));
 
         private static void OnSpeedRatioChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             LoadingIndicator indicator = d as LoadingIndicator;
-            if(indicator.PART_Root == null || !indicator.IsActived)
+            if (indicator.PART_Root == null || !indicator.IsActive)
             {
                 return;
             }
@@ -50,13 +50,15 @@ namespace CuteWpfControls
 
         public IndicatorTypeEnum IndicatorType
         {
-            get { return (IndicatorTypeEnum)GetValue(IndicatorTypeProperty); }
-            set { SetValue(IndicatorTypeProperty, value); }
+            get => (IndicatorTypeEnum)GetValue(IndicatorTypeProperty);
+            set => SetValue(IndicatorTypeProperty, value);
         }
 
         public static readonly DependencyProperty IndicatorTypeProperty =
             DependencyProperty.Register("IndicatorType", typeof(IndicatorTypeEnum), typeof(LoadingIndicator), new PropertyMetadata(IndicatorTypeEnum.DoubleRound));
 
+
+        
 
         #endregion DependencyProperty
 
@@ -74,11 +76,11 @@ namespace CuteWpfControls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            this.PART_Root = this.GetTemplateChild("PART_Root") as FrameworkElement;
-            if(this.PART_Root != null)
+            PART_Root = GetTemplateChild("PART_Root") as FrameworkElement;
+            if (PART_Root != null)
             {
-                VisualStateManager.GoToElementState(this.PART_Root, this.IsActived ? "Active" : "Inactive", true);
-                this.SetSpeedRatio(this.PART_Root, this.SpeedRatio);
+                VisualStateManager.GoToElementState(PART_Root, IsActive ? "Active" : "Inactive", true);
+                SetSpeedRatio(PART_Root, SpeedRatio);
             }
         }
 

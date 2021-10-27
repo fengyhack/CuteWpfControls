@@ -15,19 +15,20 @@ PM> Install-Package CuteWpfControls
 **What is in it**
 
 - Controls
+  - **LoadingIndicator** (*more styles*)
   - BusyMask
   - ImageButton
-  - LoadingIndicator
   - Timeline
   - Flyout
   - TextBoxEx
   - IPAddressBox
   - IconTextBox
+  - **TitleTextBox** (*new feature*)
   - PasswordBoxEx
   - **Pie**
   - **Gauge**
-  - *BusyIndicator*
-  - **StepBar** (*new feature*)
+  - **StepBar**
+  - **Badge** (*new feature*)
 - GenericStyles
   - FlatButton
   - FlatCheckBox

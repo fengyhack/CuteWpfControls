@@ -73,14 +73,14 @@ namespace CuteWpfControls
                 switch(current)
                 {
                     case 0:
-                        item.SetRelative(EnumItemRelative.After);
+                        item.SetRelative(StepBarItemRelativeEnum.After);
                         break;
                     case 1:
-                        item.SetRelative(EnumItemRelative.Over);
+                        item.SetRelative(StepBarItemRelativeEnum.Over);
                         break;
                     case 2:
                     default:
-                        item.SetRelative(EnumItemRelative.Before);
+                        item.SetRelative(StepBarItemRelativeEnum.Before);
                         break;
                 }                
             }
@@ -92,21 +92,21 @@ namespace CuteWpfControls
                 switch (current)
                 {
                     case 0:
-                        item1.SetRelative(EnumItemRelative.After);
-                        item2.SetRelative(EnumItemRelative.After);
+                        item1.SetRelative(StepBarItemRelativeEnum.After);
+                        item2.SetRelative(StepBarItemRelativeEnum.After);
                         break;
                     case 1:
-                        item1.SetRelative(EnumItemRelative.Over);
-                        item2.SetRelative(EnumItemRelative.After);
+                        item1.SetRelative(StepBarItemRelativeEnum.Over);
+                        item2.SetRelative(StepBarItemRelativeEnum.After);
                         break;
                     case 2:
-                        item1.SetRelative(EnumItemRelative.Before);
-                        item2.SetRelative(EnumItemRelative.Over);
+                        item1.SetRelative(StepBarItemRelativeEnum.Before);
+                        item2.SetRelative(StepBarItemRelativeEnum.Over);
                         break;
                     case 3:
                     default:
-                        item1.SetRelative(EnumItemRelative.Before);
-                        item2.SetRelative(EnumItemRelative.Before);
+                        item1.SetRelative(StepBarItemRelativeEnum.Before);
+                        item2.SetRelative(StepBarItemRelativeEnum.Before);
                         break;
                 }
             }
@@ -115,44 +115,44 @@ namespace CuteWpfControls
                 var firstItem = stepBar.Items[0] as StepBarItem;
                 if(current < 1)
                 {
-                    firstItem.SetRelative(EnumItemRelative.After);
+                    firstItem.SetRelative(StepBarItemRelativeEnum.After);
                 }
                 else if (current == 1)
                 {
-                    firstItem.SetRelative(EnumItemRelative.Over);
+                    firstItem.SetRelative(StepBarItemRelativeEnum.Over);
                 }
                 else
                 {
-                    firstItem.SetRelative(EnumItemRelative.Before);
+                    firstItem.SetRelative(StepBarItemRelativeEnum.Before);
                 }
                 for (int i = 2; i < n; ++i)
                 {
                     var item = stepBar.Items[i - 1] as StepBarItem;
                     if (i < current)
                     {
-                        item.SetRelative(EnumItemRelative.Before);
+                        item.SetRelative(StepBarItemRelativeEnum.Before);
                     }
                     else if (i == current)
                     {
-                        item.SetRelative(EnumItemRelative.Over);
+                        item.SetRelative(StepBarItemRelativeEnum.Over);
                     }
                     else
                     {
-                        item.SetRelative(EnumItemRelative.After);
+                        item.SetRelative(StepBarItemRelativeEnum.After);
                     }
                 }
                 var lastItem = stepBar.Items[n - 1] as StepBarItem;
                 if (current < n)
                 {
-                    lastItem.SetRelative(EnumItemRelative.After);
+                    lastItem.SetRelative(StepBarItemRelativeEnum.After);
                 }
                 else if(current == n)
                 {
-                    lastItem.SetRelative(EnumItemRelative.Over);
+                    lastItem.SetRelative(StepBarItemRelativeEnum.Over);
                 }
                 else
                 {
-                    lastItem.SetRelative(EnumItemRelative.Before);
+                    lastItem.SetRelative(StepBarItemRelativeEnum.Before);
                 }
             }
         }
@@ -184,32 +184,32 @@ namespace CuteWpfControls
             {
                 var item = Items[0] as StepBarItem;
                 item.SetIndicator("1");
-                item.SetLocation(EnumItemLocation.Last);
+                item.SetLocation(StepBarItemLocationEnum.Last);
             }
             else if (n == 2)
             {
                 var item1 = Items[0] as StepBarItem;
                 item1.SetIndicator("1");
-                item1.SetLocation(EnumItemLocation.First);
+                item1.SetLocation(StepBarItemLocationEnum.First);
 
                 var item2 = Items[1] as StepBarItem;
                 item1.SetIndicator("2");
-                item1.SetLocation(EnumItemLocation.Last);
+                item1.SetLocation(StepBarItemLocationEnum.Last);
             }
             else
             {
                 var firstItem = Items[0] as StepBarItem;
                 firstItem.SetIndicator("1");
-                firstItem.SetLocation(EnumItemLocation.First);
+                firstItem.SetLocation(StepBarItemLocationEnum.First);
                 for (int i = 1; i < n - 1; ++i)
                 {
                     var item = Items[i] as StepBarItem;
                     item.SetIndicator($"{i + 1}");
-                    item.SetLocation(EnumItemLocation.Internal);
+                    item.SetLocation(StepBarItemLocationEnum.Internal);
                 }
                 var lastItem = Items[n - 1] as StepBarItem;
                 lastItem.SetIndicator($"{n}");
-                lastItem.SetLocation(EnumItemLocation.Last);
+                lastItem.SetLocation(StepBarItemLocationEnum.Last);
             }
 
             if (Current < 1 || Current > n)

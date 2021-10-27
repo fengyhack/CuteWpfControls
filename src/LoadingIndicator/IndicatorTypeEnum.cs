@@ -2,12 +2,15 @@
 {
     public enum IndicatorTypeEnum
     {
+        Normal,
         DoubleRound,
         SingleRound,
-        Win10,
-        Android,
+        DoubleArc,
         Apple,
         Cogs,
-        Normal,
+        Circling,
+        Win10Circle,
+        LineWave,
+        RushFlow,
     }
 }

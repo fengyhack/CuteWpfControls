@@ -1,5 +1,17 @@
 ## CHANGE LOG ##
 
+**2021-10-27**
+
+Released: 1.0.12
+
+ADD:
+
+- FlatScrollBar
+- Badge
+- TitleTextBox
+
+---
+
 **2018-02-13**
 
 Released: 1.0.8

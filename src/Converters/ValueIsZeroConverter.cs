@@ -4,9 +4,6 @@ using System.Windows.Data;
 
 namespace CuteWpfControls.Converters
 {
-    /// <summary>
-    /// 判断值为否为0
-    /// </summary>
     public class ValueIsZeroConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

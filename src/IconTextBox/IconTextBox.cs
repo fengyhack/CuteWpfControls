@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace CuteWpfControls
 {
-    public class IconTextBox:IconInputBoxBase
+    public class IconTextBox: IconInputBoxBase
     {
         static IconTextBox()
         {

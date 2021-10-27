@@ -10,11 +10,11 @@ namespace CuteWpfControls
 
         public bool IsBusy
         {
-            get { return (bool)GetValue(IsBusyProperty); }
-            set { SetValue(IsBusyProperty, value); }
+            get => (bool)GetValue(IsBusyProperty);
+            set => SetValue(IsBusyProperty, value);
         }
 
-        public static readonly DependencyProperty IsBusyProperty = 
+        public static readonly DependencyProperty IsBusyProperty =
             DependencyProperty.Register("IsBusy", typeof(bool), typeof(BusyMask), new PropertyMetadata(false, OnIsBusyChanged));
 
         private static void OnIsBusyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -25,8 +25,8 @@ namespace CuteWpfControls
 
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
         public static readonly DependencyProperty TextProperty =
@@ -34,8 +34,8 @@ namespace CuteWpfControls
 
         public Brush IndicatorForeground
         {
-            get { return (Brush)GetValue(IndicatorForegroundProperty); }
-            set { SetValue(IndicatorForegroundProperty, value); }
+            get => (Brush)GetValue(IndicatorForegroundProperty);
+            set => SetValue(IndicatorForegroundProperty, value);
         }
 
         public static readonly DependencyProperty IndicatorForegroundProperty =
@@ -43,8 +43,8 @@ namespace CuteWpfControls
 
         public IndicatorTypeEnum IndicatorType
         {
-            get { return (IndicatorTypeEnum)GetValue(IndicatorTypeProperty); }
-            set { SetValue(IndicatorTypeProperty, value); }
+            get => (IndicatorTypeEnum)GetValue(IndicatorTypeProperty);
+            set => SetValue(IndicatorTypeProperty, value);
         }
 
         public static readonly DependencyProperty IndicatorTypeProperty =

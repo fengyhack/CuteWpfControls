@@ -8,18 +8,18 @@ using System.Windows.Threading;
 namespace CuteWpfControls
 {
     [TemplatePart(Name = "ContentRoot", Type = typeof(FrameworkElement))]
-    public class Flyout:ContentControl
+    public class Flyout : ContentControl
     {
         #region DependencyProperty
 
-        public PositionEnum FadePosition
+        public FadePositionEnum FadePosition
         {
-            get { return (PositionEnum)GetValue(FadePositionProperty); }
+            get { return (FadePositionEnum)GetValue(FadePositionProperty); }
             set { SetValue(FadePositionProperty, value); }
         }
 
         public static readonly DependencyProperty FadePositionProperty =
-            DependencyProperty.Register("FadePosition", typeof(PositionEnum), typeof(Flyout), new PropertyMetadata(PositionEnum.Top, OnFadePositionChanged));
+            DependencyProperty.Register("FadePosition", typeof(FadePositionEnum), typeof(Flyout), new PropertyMetadata(FadePositionEnum.Top, OnFadePositionChanged));
 
         private static void OnFadePositionChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -28,11 +28,11 @@ namespace CuteWpfControls
 
             if (wasOpen)
             {
-                flyout.ApplyAnimation((PositionEnum)e.NewValue);
+                flyout.ApplyAnimation((FadePositionEnum)e.NewValue);
             }
             else
             {
-                flyout.ApplyAnimation((PositionEnum)e.NewValue, false);
+                flyout.ApplyAnimation((FadePositionEnum)e.NewValue, false);
             }
 
             string visualStatus = GetFlyoutVisualStatus(wasOpen, flyout.IsAnimated);
@@ -153,11 +153,11 @@ namespace CuteWpfControls
             gotTemplate = true;
         }
 
-        protected void ApplyAnimation(PositionEnum fadePosition, bool resetShowFrame = true)
+        protected void ApplyAnimation(FadePositionEnum fadePosition, bool resetShowFrame = true)
         {
             if (!gotTemplate) return;
 
-            if (fadePosition == PositionEnum.Left || fadePosition == PositionEnum.Right)
+            if (fadePosition == FadePositionEnum.Left || fadePosition == FadePositionEnum.Right)
             {
                 showFrameX.Value = 0;
             }
@@ -168,7 +168,7 @@ namespace CuteWpfControls
 
             switch (fadePosition)
             {
-                case PositionEnum.Left:
+                case FadePositionEnum.Left:
                     HorizontalAlignment = Margin.Right <= 0 ? (HorizontalContentAlignment != HorizontalAlignment.Stretch ? HorizontalAlignment.Left : HorizontalContentAlignment) : HorizontalAlignment.Stretch;
                     VerticalAlignment = VerticalAlignment.Stretch;
                     hideFrameX.Value = -ActualWidth - Margin.Left;
@@ -178,7 +178,7 @@ namespace CuteWpfControls
                         RenderTransform = new TranslateTransform(-ActualWidth, 0);
                     }
                     break;
-                case PositionEnum.Right:
+                case FadePositionEnum.Right:
                     HorizontalAlignment = Margin.Left <= 0 ? (HorizontalContentAlignment != HorizontalAlignment.Stretch ? HorizontalAlignment.Right : HorizontalContentAlignment) : HorizontalAlignment.Stretch;
                     VerticalAlignment = VerticalAlignment.Stretch;
                     hideFrameX.Value = ActualWidth + Margin.Right;
@@ -188,7 +188,7 @@ namespace CuteWpfControls
                         RenderTransform = new TranslateTransform(ActualWidth, 0);
                     }
                     break;
-                case PositionEnum.Top:
+                case FadePositionEnum.Top:
                     HorizontalAlignment = HorizontalAlignment.Stretch;
                     VerticalAlignment = Margin.Bottom <= 0 ? (VerticalContentAlignment != VerticalAlignment.Stretch ? VerticalAlignment.Top : VerticalContentAlignment) : VerticalAlignment.Stretch;
                     hideFrameY.Value = -ActualHeight - 1 - Margin.Top;
@@ -198,7 +198,7 @@ namespace CuteWpfControls
                         RenderTransform = new TranslateTransform(0, -ActualHeight - 1);
                     }
                     break;
-                case PositionEnum.Bottom:
+                case FadePositionEnum.Bottom:
                     HorizontalAlignment = HorizontalAlignment.Stretch;
                     VerticalAlignment = Margin.Top <= 0 ? (VerticalContentAlignment != VerticalAlignment.Stretch ? VerticalAlignment.Bottom : VerticalContentAlignment) : VerticalAlignment.Stretch;
                     hideFrameY.Value = ActualHeight + Margin.Bottom;
@@ -239,7 +239,7 @@ namespace CuteWpfControls
                 return;
             }
 
-            if (FadePosition == PositionEnum.Left || FadePosition == PositionEnum.Right)
+            if (FadePosition == FadePositionEnum.Left || FadePosition == FadePositionEnum.Right)
             {
                 showFrameX.Value = 0;
             }
@@ -250,16 +250,16 @@ namespace CuteWpfControls
 
             switch (FadePosition)
             {
-                case PositionEnum.Left:
+                case FadePositionEnum.Left:
                     hideFrameX.Value = -ActualWidth - Margin.Left;
                     break;
-                case PositionEnum.Right:
+                case FadePositionEnum.Right:
                     hideFrameX.Value = ActualWidth + Margin.Right;
                     break;
-                case PositionEnum.Top:
+                case FadePositionEnum.Top:
                     hideFrameY.Value = -ActualHeight - 1 - Margin.Top;
                     break;
-                case PositionEnum.Bottom:
+                case FadePositionEnum.Bottom:
                     hideFrameY.Value = ActualHeight + Margin.Bottom;
                     break;
                 default:
